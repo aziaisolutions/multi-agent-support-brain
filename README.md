@@ -6,14 +6,14 @@ An enterprise-grade, state-orchestrated multi-agent support automation pipeline 
 
 ## 🏗️ System Architecture
 
-\`\`\`mermaid
+```mermaid
 flowchart TD
     Start([Incoming Customer Query]) --> Triage[Triage Agent]
     Triage -->|Classify & Score| Data[Data Agent - RAG]
     Data -->|Fetch SOPs / Context| Action[Action Agent]
     Action -->|Persist Ticket & Resolution| Supabase[(Supabase Database)]
     Action --> End([Resolved Response / Audit Trail])
-\`\`\`
+```
 
 ### Agents Breakdown
 - **Triage Agent (`src/agents/triageAgent.ts`)**: Classifies queries into categories (`technical_bug`, `billing`, `urgent_escalation`, `general_query`).
